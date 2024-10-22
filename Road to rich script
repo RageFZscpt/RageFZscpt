@@ -1,0 +1,1336 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "Road To Rich " .. Fluent.Version,
+    SubTitle = "by F.Z",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
+
+--Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "" }),
+Aim = Window:AddTab({ Title = "Aim", Icon = "" }),
+Farm = Window:AddTab({ Title = "Farm", Icon = "" }),
+Buy = Window:AddTab({ Title = "Buy", Icon = "" }),
+Tp = Window:AddTab({ Title = "Tp", Icon = "" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
+
+local Options = Fluent.Options
+
+do
+    Fluent:Notify({
+        Title = "Notification",
+        Content = "This is a notification",
+        SubContent = "SubContent", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
+
+    Tabs.Main:AddParagraph({
+        Title = "in development",
+        Content = "the farm mod works and the buy mod also install tinytask for farming!"
+    })
+
+
+--Button--
+
+
+
+    Tabs.Buy:AddButton({
+        Title = "Seed",
+        Description = "5$ 0 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Misc.Seed
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Pink Slum Flower Pack",
+        Description = "120$ 0 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Misc:FindFirstChild("Pink Slum Flower Pack")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Armor Plate",
+        Description = "50$ 25 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Misc:FindFirstChild("Armor Plate")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Blank",
+        Description = "2$ 50 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Misc.Blank
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Pressure Seed",
+        Description = "30$ 300 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Misc:FindFirstChild("Pressure Seed")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Medium Ammo (30 Rounds)",
+        Description = "120$ 0 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Ammo:FindFirstChild("Medium Ammo (30 Rounds)")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Heavy Ammo (30 Rounds)",
+        Description = "150",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Ammo:FindFirstChild("Heavy Ammo (30 Rounds)")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Micro Draco",
+        Description = "3,425$ 190 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Rifles:FindFirstChild("Micro Draco")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Micro ARP",
+        Description = "3,600$ 230 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Rifles:FindFirstChild("Micro ARP")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Sako T3",
+        Description = "8,000$ 500 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Rifles:FindFirstChild("Sako T3")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Scalpel",
+        Description = "30$ 1 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Melees.Scalpel
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Metal Bat",
+        Description = "50$ 3 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Melees:FindFirstChild("Metal Bat")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Walther PPK",
+        Description = "650$ 10 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("Walther PPK")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Colt Detective",
+        Description = "750$ 15 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("Colt Detective")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Glock 26",
+        Description = "900$ 20 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("Glock 26")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Glock 19",
+        Description = "1,050$ 25 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("Glock 19")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Colt M1911",
+        Description = "1,150$ 30 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("Colt M1911")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Berreta M9",
+        Description = "1,200$ 30 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("Beretta M9")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "CZ 75",
+        Description = "1,300$ 60 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("CZ 75")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Beretta PX4 Storm",
+        Description = "1,350$ 100 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("Beretta PX4 Storm")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Desert Eagle",
+        Description = "1,750$ 160 Notoriete",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Pistols:FindFirstChild("Desert Eagle")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Sawed-Off",
+        Description = "✅",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Shotguns:FindFirstChild("Sawed-Off")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "SPAS-12",
+        Description = "✅",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").Shotguns:FindFirstChild("SPAS-12")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "TEC-9",
+        Description = "✅",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").SMGs:FindFirstChild("TEC-9")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "MAC-10",
+        Description = "✅",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").SMGs:FindFirstChild("MAC-10")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "MP5K",
+        Description = "✅",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").SMGs.MP5K
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "KRISS Vector",
+        Description = "✅",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").SMGs:FindFirstChild("KRISS Vector")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "Uzi",
+        Description = "✅",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").SMGs.Uzi
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+Tabs.Buy:AddButton({
+        Title = "vz 61 Skorpion",
+        Description = "✅",
+        Callback = function()
+local args = {
+    [1] = game:GetService("ReplicatedStorage").StoreMenus:FindFirstChild("DV Imports").SMGs:FindFirstChild("vz. 61 Skorpion")
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.StorePurchase:InvokeServer(unpack(args))
+            Window:Dialog({
+                Title = "Title",
+                Content = "This is a dialog",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+--Farm--
+
+Tabs.Farm:AddButton({
+    Title = "Farm Box Manuel",
+    Description = "Do not delete the script if autofarm is enabled and you need TinyTask",
+    Callback = function()
+        Window:Dialog({
+            Title = "Go Farm",
+            Content = "✅",
+            Buttons = {
+                {
+                    Title = "Start",
+                    Callback = function()
+                        isRunning = true
+                        local player = game.Players.LocalPlayer
+                        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                            -- Positions de téléportation
+                            local firstPosition = Vector3.new(938.8701782226562, 2562.83056640625, 152.9171142578125)
+                            local secondPosition = Vector3.new(966.3018188476562, 2563.008056640625, 124.78646850585938)
+
+                            while isRunning do
+                                -- Téléportation au premier endroit
+                                player.Character.HumanoidRootPart.CFrame = CFrame.new(firstPosition)
+                                print("Téléporté au premier endroit. Attente de 4 secondes...")
+                                task.wait(4) -- Attend 4 secondes
+
+                                -- Téléportation au deuxième endroit
+                                player.Character.HumanoidRootPart.CFrame = CFrame.new(secondPosition)
+                                print("Téléporté au deuxième endroit. Attente de 4 secondes...")
+                                task.wait(4) -- Attend 4 secondes
+                            end
+                        else
+                            print("Erreur : le personnage ou le HumanoidRootPart n'a pas été trouvé.")
+                        end
+                    end
+                },
+                {
+                    Title = "Stop",
+                    Callback = function()
+                        isRunning = false
+                        print("Arrêt de la téléportation.")
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
+                }
+            }
+        })
+    end
+})
+
+--1️⃣--
+
+-- Ajout du bouton à l'interface utilisateur
+Tabs.Farm:AddButton({
+    Title = "Farm Seed Manuel",
+    Description = "Do not delete the script if autofarm is enabled and you need TinyTask",
+    Callback = function()
+        Window:Dialog({
+            Title = "Go Farm",
+            Content = "✅",
+            Buttons = {
+                {
+                    Title = "Start",
+                    Callback = function()
+                        isRunning = true  -- Démarre la boucle
+                        local player = game.Players.LocalPlayer
+                        
+                        -- Vérifie que le personnage et le HumanoidRootPart existent
+                        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                            -- Positions de téléportation (7 positions)
+                            local positions = {
+                                Vector3.new(893.217041015625, 2563.0078125, 743.6980590820312),
+                                Vector3.new(893.3887939453125, 2563.0078125, 745.8880004882812),
+                                Vector3.new(893.3839721679688, 2563.0078125, 748.1597900390625),
+                                Vector3.new(893.3584594726562, 2563.0078125, 750.181884765625),
+                                Vector3.new(893.368408203125, 2563.0078125, 756.5469360351562),
+                                Vector3.new(893.1061401367188, 2563.0078125, 758.7721557617188),
+                                Vector3.new(893.2760620117188, 2563.0078125, 762.9422607421875)
+                            }
+
+                            while isRunning do
+                                -- Boucle à travers toutes les positions
+                                for _, pos in ipairs(positions) do
+                                    player.Character.HumanoidRootPart.CFrame = CFrame.new(pos)  -- Téléporte le joueur
+                                    print("Téléporté à la position : " .. tostring(pos) .. ". Attente de 4 secondes...")
+                                    task.wait(4)  -- Attend 4 secondes
+                                    if not isRunning then break end  -- Vérifie si l'on doit arrêter
+                                end
+                            end
+                        else
+                            print("Erreur : le personnage ou le HumanoidRootPart n'a pas été trouvé.")
+                        end
+                    end
+                },
+                {
+                    Title = "Stop",
+                    Callback = function()
+                        isRunning = false  -- Met isRunning à false pour arrêter la téléportation
+                        print("Arrêt de la téléportation.")
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
+                }
+            }
+        })
+    end
+})
+
+Tabs.Farm:AddButton({
+    Title = "Farm Steak Manuel",
+    Description = "Do not delete the script if autofarm is enabled and you need TinyTask",
+    Callback = function()
+        Window:Dialog({
+            Title = "Go Farm",
+            Content = "✅",
+            Buttons = {
+                {
+                    Title = "Start",
+                    Callback = function()
+                        isRunning = true
+                        local player = game.Players.LocalPlayer
+                        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                            -- Positions de téléportation pour chaque étape
+                            local positions = {
+                                Vector3.new(462.3491516113281, 2563.3583984375, 1313.9193115234375),  -- Étape 1
+                                Vector3.new(463.5831604003906, 2563.298828125, 1313.6759033203125),  -- Étape 2
+                                Vector3.new(455.3656005859375, 2563.298828125, 1329.441162109375),  -- Étape 3
+                                Vector3.new(456.14837646484375, 2563.298828125, 1313.6805419921875),  -- Étape 4
+                                Vector3.new(456.14837646484375, 2563.298828125, 1313.6805419921875),  -- Étape 5
+                                Vector3.new(448.9903564453125, 2563.298828125, 1329.5113525390625)   -- Étape 6
+                            }
+
+                            -- Temps d'attente pour chaque étape (en secondes)
+                            local waitTime = 4  -- 4 secondes pour chaque étape
+
+                            -- Fonction pour téléporter étape par étape
+                            local function teleportSteps()
+                                for stepIndex = 1, #positions do
+                                    if isRunning then
+                                        player.Character.HumanoidRootPart.CFrame = CFrame.new(positions[stepIndex])
+                                        print("Téléporté à l'étape", stepIndex, ":", positions[stepIndex])
+                                        task.wait(waitTime) -- Attendre 4 secondes
+                                    end
+                                end
+                            end
+
+                            -- Boucle infinie pour redémarrer les étapes
+                            while isRunning do
+                                teleportSteps() -- Exécute les téléportations
+                            end
+                        else
+                            print("Erreur : le personnage ou le HumanoidRootPart n'a pas été trouvé.")
+                        end
+                    end
+                },
+                {
+                    Title = "Stop",
+                    Callback = function()
+                        isRunning = false
+                        print("Arrêt de la téléportation.")
+                    end
+                },
+                {
+                    Title = "Cancel",
+                    Callback = function()
+                        print("Cancelled the dialog.")
+                    end
+                }
+            }
+        })
+    end
+})
+
+--Aim--
+
+Tabs.Aim:AddButton({
+        Title = "Soon",
+        Description = "In update",
+        Callback = function()
+            Window:Dialog({
+                Title = "Soon",
+                Content = "in update",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            print("Confirmed the dialog.")
+                        end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            })
+        end
+    })
+
+--Toggle--
+
+
+--Slider--   
+
+
+--Dropdown--
+
+-- Création du dropdown dans le panneau principal
+local Dropdown = Tabs.Tp:AddDropdown("Dropdown", {
+    Title = "Select a Location",
+    Values = {
+        "none", 
+        "library", 
+        "phone store", 
+        "steak restaurant", 
+        "jewelry store", 
+        "burger store", 
+        "fitness store", 
+        "laundry", 
+        "alchimi", 
+        "cars store", 
+        "seed bunker", 
+        "clothing store", 
+        "usine", 
+        "hair salon", 
+        "dealer", 
+        "métro", 
+        "tattoo store"
+    },
+    Multi = false,
+    Default = 1,  -- Définir "none" comme valeur par défaut
+})
+
+-- Définir la valeur initiale à "none"
+Dropdown:SetValue("none")
+
+-- Fonction appelée lors du changement de valeur dans le dropdown
+Dropdown:OnChanged(function(Value)
+    print("Dropdown changed:", Value)  -- Affiche la nouvelle valeur dans la console
+
+    -- Récupérer le joueur local
+    local player = game.Players.LocalPlayer
+
+    -- Vérifiez que le personnage et le HumanoidRootPart existent
+    if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        if Value == "none" then
+            print("Aucune téléportation effectuée, reste au même endroit.")
+        elseif Value == "library" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(50.89647674560547, 2562.90869140625, 1983.53955078125)
+            print("Téléporté à la bibliothèque.")
+        elseif Value == "phone store" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(426.7738342285156, 2562.96337890625, 1999.6961669921875)
+            print("Téléporté au magasin de téléphones.")
+        elseif Value == "steak restaurant" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(433.46697998046875, 2563.310546875, 1324.29150390625)
+            print("Téléporté au restaurant de steak.")
+        elseif Value == "jewelry store" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(-80.95059204101562, 2563.039794921875, 944.8199462890625)
+            print("Téléporté au magasin de bijoux.")
+        elseif Value == "burger store" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(798.6257934570312, 2562.9375, 309.9563293457031)
+            print("Téléporté au magasin de burgers.")
+        elseif Value == "fitness store" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(792.1053466796875, 2563.04541015625, 1179.9376220703125)
+            print("Téléporté au magasin de fitness.")
+        elseif Value == "laundry" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(426.79412841796875, 2563.322265625, 1504.7310791015625)
+            print("Téléporté à la laverie.")
+        elseif Value == "alchimi" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(563.4457397460938, 2562.64404296875, 1956.4407958984375)
+            print("Téléporté à l'alchimie.")
+        elseif Value == "cars store" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(856.506103515625, 2563.81982421875, 1074.2811279296875)
+            print("Téléporté au magasin de voitures.")
+        elseif Value == "seed bunker" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(905.6636352539062, 2563.007568359375, 739.9769287109375)
+            print("Téléporté au bunker de graines.")
+        elseif Value == "clothing store" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(1081.32470703125, 2562.871826171875, 1166.5274658203125)
+            print("Téléporté au magasin de vêtements.")
+        elseif Value == "usine" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(1228.0931396484375, 2529.416259765625, 1990.157958984375)
+            print("Téléporté à l'usine.")
+        elseif Value == "hair salon" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(1187.697998046875, 2558.43994140625, 971.0531005859375)
+            print("Téléporté au salon de coiffure.")
+        elseif Value == "dealer" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(241.35317993164062, 2544.95849609375, 1083.109619140625)
+            print("Téléporté au dealer.")
+        elseif Value == "métro" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(131.06307983398438, 2540.107177734375, 1027.381591796875)
+            print("Téléporté au métro.")
+        elseif Value == "tattoo store" then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(1172.401611328125, 2563.04638671875, 784.0015869140625)
+            print("Téléporté au magasin de tatouages.")
+        end
+    else
+        print("Erreur : le personnage ou le HumanoidRootPart n'a pas été trouvé.")
+    end
+end)
+
+--Multidropdown--
+    
+
+
+--colorpicker--
+
+
+
+
+--tcolorpicker--
+
+
+
+--keybind--
+
+    local Keybind = Tabs.Main:AddKeybind("Keybind", {
+        Title = "KeyBind",
+        Mode = "Toggle", -- Always, Toggle, Hold
+        Default = "LeftControl", -- String as the name of the keybind (MB1, MB2 for mouse buttons)
+
+        -- Occurs when the keybind is clicked, Value is `true`/`false`
+        Callback = function(Value)
+            print("Keybind clicked!", Value)
+        end,
+
+        -- Occurs when the keybind itself is changed, `New` is a KeyCode Enum OR a UserInputType Enum
+        ChangedCallback = function(New)
+            print("Keybind changed!", New)
+        end
+    })
+
+    -- OnClick is only fired when you press the keybind and the mode is Toggle
+    -- Otherwise, you will have to use Keybind:GetState()
+    Keybind:OnClick(function()
+        print("Keybind clicked:", Keybind:GetState())
+    end)
+
+    Keybind:OnChanged(function()
+        print("Keybind changed:", Keybind.Value)
+    end)
+
+    task.spawn(function()
+        while true do
+            wait(1)
+
+            -- example for checking if a keybind is being pressed
+            local state = Keybind:GetState()
+            if state then
+                print("Keybind is being held down")
+            end
+
+            if Fluent.Unloaded then break end
+        end
+    end)
+
+    Keybind:SetValue("MB2", "Toggle") -- Sets keybind to MB2, mode to Hold
+
+
+    local Input = Tabs.Main:AddInput("Input", {
+        Title = "Input",
+        Default = "Default",
+        Placeholder = "Placeholder",
+        Numeric = false, -- Only allows numbers
+        Finished = false, -- Only calls callback when you press enter
+        Callback = function(Value)
+            print("Input changed:", Value)
+        end
+    })
+
+    Input:OnChanged(function()
+        print("Input updated:", Input.Value)
+    end)
+end
+
+
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- InterfaceManager (Allows you to have a interface managment system)
+
+-- Hand the library over to our managers
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+
+-- Ignore keys that are used by ThemeManager.
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings()
+
+-- You can add indexes of elements the save manager should ignore
+SaveManager:SetIgnoreIndexes({})
+
+-- use case for doing it this way:
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+InterfaceManager:SetFolder("FluentScriptHub")
+SaveManager:SetFolder("FluentScriptHub/specific-game")
+
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
+
+
+Window:SelectTab(1)
+
+Fluent:Notify({
+    Title = "Fluent",
+    Content = "The script has been loaded.",
+    Duration = 8
+})
+
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config
+-- which has been marked to be one that auto loads!
+SaveManager:LoadAutoloadConfig()
